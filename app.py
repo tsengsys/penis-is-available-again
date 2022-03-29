@@ -264,7 +264,7 @@ def create_connection():
     return pymysql.connect(
         host = 'containers-us-west-35.railway.app',
         user = 'root',
-        port = '5989',
+        port = 5989,
         password = 'axqT2LQ7VaTJB2xCbmGE',
         db = 'railway',
         charset = 'utf8mb4',
@@ -286,7 +286,7 @@ if __name__ == '__main__':
     app.secret_key = "os.urandom(69)"
     HOST = os.environ.get('SERVER_HOST', 'localhost')
     try:
-        PORT = int(os.environ.get('SERVER_PORT', '5555'))
+        PORT = int(os.environ.get('SERVER_PORT', '5989'))
     except ValueError:
-        PORT = 5555
+        PORT = 5989
     app.run(HOST, PORT, debug=True)
