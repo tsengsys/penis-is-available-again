@@ -3,7 +3,7 @@ This script runs the application using a development server.
 It contains the definition of routes and views for the application.
 """
 
-from flask import Flask, render_template, request, redirect, session, url_for
+from flask import Flask, render_template, request, redirect, session, url_for, flash
 import pymysql, os, random, jinja2, shortuuid, uuid, datetime
 from cryptography.fernet import Fernet
 from passlib.hash import pbkdf2_sha256
@@ -199,7 +199,8 @@ def afterLogin():
             result = cursor.fetchone()
         connection.close()
         if bool(result) is False:
-            return render_template("/login.html", error="Wrong Credentials")
+            flash("Wrong Credentials")
+            return render_template("/login.html")
         else:
             passhash = pbkdf2_sha256.verify(password_val, result['Password'])
             if passhash:
