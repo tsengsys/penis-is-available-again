@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+<title>testrun1 Login</title>
+<div class="container" id="loginContainer">
+    <form method="POST" action="/afterLogin" enctype="multipart/form-data">
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="Email"><br>
+        <label for="email">Password:</label><br>
+        <input type="password" id="password" name="password" placeholder="Password"><br><br>
+        <input type="submit" value="Login">
+    </form>
+</div>
+{% endblock content %}

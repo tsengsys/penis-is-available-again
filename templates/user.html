@@ -1,0 +1,32 @@
+﻿{% extends "layout.html" %}
+{% block content %}
+<title>testrun1 User Info Update</title>
+<div class="container" id="registerContainer">
+    <form method="POST" action="/edit_user" enctype="multipart/form-data">
+        <input type="hidden" name="userid" value="{{user['UserID']}}" />
+        <input type="hidden" name="avatar" value="{{user['Avatar']}}" />
+        <label for="studentID">Student ID:</label><br>
+        <input type="text" id="studentID" name="studentID" value="{{user['StudentID']}}" required><br>
+        <label for="fname">First Name:</label><br>
+        <input type="text" id="fname" name="fname" value="{{user['FirstName']}}" required><br>
+        <label for="lname">Last Name:</label><br>
+        <input type="text" id="lname" name="lname" value="{{user['LastName']}}" required><br>
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" value="{{user['username']}}" required><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" value="{{user['Email']}}" required><br>
+        <label for="roleid">Role:</label><br>
+            <select name="roleid" id="roldid">
+                <option>-Select-</option>
+                {% for role in roles %}
+                    <option value="{{role['RoleID']}}" {{"selected='selected'" if user['RoleID'] == role['RoleID'] else ""}}>{{role['RoleType']}}</option>
+                {% endfor %}
+            </select><br>
+        <label for="avatar">Avatar:</label><br>
+        <input type="file" id="avatar" name="avatar" placeholder="Avatar"><br><br>
+        <input type="submit" value="Update">
+    </form>
+</div>
+{% endblock content %}
