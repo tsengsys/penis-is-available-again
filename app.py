@@ -262,10 +262,10 @@ def decryptFile(ogfile):
 
 def create_connection():
     return pymysql.connect(
-        host = '10.0.0.17',
-        user = 'seatseng',
-        password = 'ARWES',
-        db = 'seatseng_testrun1',
+        host = 'containers-us-west-35.railway.app',
+        user = 'root',
+        password = 'axqT2LQ7VaTJB2xCbmGE',
+        db = 'railway',
         charset = 'utf8mb4',
         cursorclass = pymysql.cursors.DictCursor
     )
