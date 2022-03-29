@@ -264,6 +264,7 @@ def create_connection():
     return pymysql.connect(
         host = 'containers-us-west-35.railway.app',
         user = 'root',
+        port = '5989',
         password = 'axqT2LQ7VaTJB2xCbmGE',
         db = 'railway',
         charset = 'utf8mb4',
