@@ -193,7 +193,7 @@ def afterLogin():
         password_val = request.form["password"]
         connection = create_connection()
         with connection.cursor() as cursor:
-            sql = "SELECT * FROM userdata WHERE Email=%s"
+            sql = "SELECT * from userdata where Email=%s"
             val = (email_val)
             cursor.execute(sql, val)
             result = cursor.fetchone()
