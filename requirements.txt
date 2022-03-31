@@ -1,6 +1,6 @@
 flask
+pymysql
 gunicorn
 cryptography
 passlib
 shortuuid
-pymysql
