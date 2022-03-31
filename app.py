@@ -284,7 +284,7 @@ def create_connection():
 
 if __name__ == '__main__':
     import os
-    app.secret_key = "os.urandom(69)"
+    app.secret_key = os.urandom(69)
     HOST = os.environ.get('SERVER_HOST', 'localhost')
     try:
         PORT = int(os.environ.get('SERVER_PORT', '5989'))
