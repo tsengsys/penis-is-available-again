@@ -9,6 +9,8 @@ from cryptography.fernet import Fernet
 from passlib.hash import pbkdf2_sha256
 app = Flask(__name__)
 
+app.secret_key = os.urandom(69)
+
 # Make the WSGI interface available at the top level so wfastcgi can get it.
 wsgi_app = app.wsgi_app
 allowed_extensions = set(['png', 'jpg', 'jpeg', 'gif'])
@@ -284,7 +286,6 @@ def create_connection():
 
 if __name__ == '__main__':
     import os
-    app.secret_key = os.urandom(69)
     app.config['SESSION_TYPE'] = 'filesystem'
     HOST = os.environ.get('SERVER_HOST', 'localhost')
     try:
